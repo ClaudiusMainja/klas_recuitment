@@ -13,7 +13,7 @@
 
   // Hero text animation
   const heroTexts = ["Find your next dream job", "Get Hired Today", "Start Your Journey"];
-  let currentText = 1;
+  let currentText = 0;
   const heroTextElement = document.querySelector('.animate-text-slide');
 
   setInterval(() => {
