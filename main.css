@@ -1,0 +1,59 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+  /* Base styles */
+  .mobile-menu {
+    display: none;
+}
+
+.mobile-menu.show {
+    display: block;
+}
+
+/* Hide mobile button on larger screens */
+@media (min-width: 768px) {
+    #mobileMenuButton {
+        display: none;
+    }
+    
+    .mobile-menu {
+        display: none !important;
+    }
+}
+
+/* Hide desktop menu on mobile */
+@media (max-width: 767px) {
+    .desktop-menu {
+        display: none;
+    }
+}
+
+/* Dark mode styles */
+.dark {
+    color-scheme: dark;
+}
+
+.dark body {
+    background-color: #111827;
+    color: #fff;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-fade-in-up {
+    animation: fadeIn 1s ease-out 0.3s forwards;
+    opacity: 0;
+}
+
+.animate-text-slide {
+    transition: opacity 0.5s ease-in-out;
+}
