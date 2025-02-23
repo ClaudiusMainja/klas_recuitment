@@ -8,7 +8,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
@@ -57,40 +57,14 @@
                     </a>
                 </div>
 
-                <!-- Mobile Menu Button -->
-                <button id="mobileMenuButton" class="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                    <svg class="h-6 w-6 menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                    <svg class="h-6 w-6 close-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
+             
 
-            <!-- Mobile Navigation -->
-            <div class="mobile-menu py-4">
-                <div class="flex flex-col gap-4">
-                    <button class="mobile-theme-toggle p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors w-fit">
-                        <svg class="w-5 h-5 text-gray-700 dark:text-gray-200 sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"></path>
-                        </svg>
-                        <svg class="w-5 h-5 text-gray-700 dark:text-gray-200 moon-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-                        </svg>
-                    </button>
-                    <a href="#" class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
-                        Login
-                    </a>
-                    <a href="#" class="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-orange-600 to-orange-500 rounded-lg hover:opacity-90 transition-colors text-center">
-                        Sign Up
-                    </a>
-                </div>
-            </div>
         </div>
     </nav>
 </header>
-<body class="bg-white dark:bg-gray-900 transition-colors duration-300">
+
+
+<body class="bg-gray-200 dark:bg-gray-900 transition-colors duration-300">
 
     <!-- Hero Section -->
     <main class="pt-32 pb-10">
@@ -308,13 +282,13 @@
                 </div>
 
                 <!-- For Recruiters -->
-                <div class="bg-gradient-to-br from-orange-500 to-blue-50 dark:from-orange-500 dark:to-orange-600 p-8 rounded-2xl">
+                <div class="bg-gradient-to-br from-orange-500 to-orange-600 dark:from-orange-500 dark:to-orange-600 p-8 rounded-2xl">
                     <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">For Recruiters</h3>
-                    <p class="text-gray-600 dark:text-white mb-6">
+                    <p class="text-white dark:text-white mb-6">
                         Post jobs, manage applications, and find the best candidates efficiently. 
                         Our advanced tools help you streamline your recruitment process.
                     </p>
-                    <button class="text-green-600 dark:text-black font-medium hover:underline">
+                    <button class="text-black dark:text-black font-medium hover:underline">
                         Learn More →
                     </button>
                 </div>
@@ -348,7 +322,8 @@
                 <div>
                     <h4 class="font-semibold text-gray-900 dark:text-white mb-4">Legal</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Privacy Policy</a></li>
+                        <a href="#" onclick="openModal(); return false;" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Privacy Policy</a>
+                        
                         <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Terms of Service</a></li>
                         <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Cookie Policy</a></li>
                     </ul>
