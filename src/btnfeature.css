@@ -1,0 +1,62 @@
+.popup-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease;
+  }
+  
+  .popup-container {
+    transform: scale(0.9);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .popup-container.show {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .column-animation-left {
+    animation: slideInLeft 0.5s ease forwards;
+  }
+  
+  .column-animation-right {
+    animation: slideInRight 0.5s ease forwards;
+  }
+  
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      transform: translateX(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .login-btn {
+    transition: all 0.3s ease;
+  }
+  
+  .login-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .social-login-btn {
+    transition: all 0.2s ease;
+  }
+  
+  .social-login-btn:hover {
+    transform: scale(1.05);
+  }

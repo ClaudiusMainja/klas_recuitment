@@ -41,6 +41,7 @@
 
                 <!-- Desktop Navigation -->
                 <div class="desktop-menu flex items-center gap-4">
+                    <!--Hide the accessibility button
                     <button id="themeToggle"
                         class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
                         <svg class="w-5 h-5 text-gray-700 dark:text-gray-200 sun-icon" fill="none" stroke="currentColor"
@@ -56,18 +57,21 @@
                             </path>
                         </svg>
                     </button>
+                    -->
                     <a href="/job-seeker/login.html">
                         <button
                             class="px-4 py-2 text-md font-medium text-white dark:text-gray-200 hover:bg-orange-500 dark:hover:bg-gray-800 rounded-lg transition-colors">
                             Login
                         </button>
                     </a>
-                    <a href="/pages/register.html" target="_blank">
-                        <button
+                    <div x-data="{showPopup: false}" >
+                    <a href="#">
+                        <button  @click="showPopup = true" 
                             class="px-4 py-2 text-md font-medium text-white bg-gradient-to-r from-orange-600 to-orange-500 rounded-lg hover:opacity-90 transition-colors">
                             Sign Up
                         </button>
                     </a>
+                    </div>
                 </div>
 
                     <!-- Mobile Menu Button -->
@@ -84,15 +88,8 @@
                 <!-- Mobile Navigation -->
                 <div class="mobile-menu py-4">
                     <div class="flex flex-col gap-4">
-                        <button class="mobile-theme-toggle p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors w-fit">
-                            <svg class="w-5 h-5 text-gray-700 dark:text-gray-200 sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"></path>
-                            </svg>
-                            <svg class="w-5 h-5 text-gray-700 dark:text-gray-200 moon-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-                            </svg>
-                        </button>
-                        <a href="#" class="px-4 py-2 text-md font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
+   
+                        <a href="/job-seeker/login.html" class="px-4 py-2 text-md text-center font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
                             Login
                         </a>
                         <a href="#" class="px-4 py-2 text-md font-medium text-white bg-gradient-to-r from-orange-600 to-orange-500 rounded-lg hover:opacity-90 transition-colors text-center">
@@ -132,7 +129,7 @@
                     Find a Job
                 </button>
                 <button
-                    class="px-8 py-4 text-white dark:text-white border-2 border-gray-300 dark:border-gray-700 rounded-lg hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300 transform hover:scale-105">
+                    class="px-8 py-4 text-white dark:text-white border-2 border-gray-300 dark:border-white rounded-lg hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300 transform hover:scale-105">
                     Post a Job
                 </button>
             </div>
