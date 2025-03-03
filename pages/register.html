@@ -23,37 +23,125 @@
     <link rel="stylesheet" href="/main.css">
     <link rel="stylesheet" href="/src/btnfeature.css">
 </head>
+<header>
+  <nav
+      class="fixed w-full top-0 z-50 backdrop-blur-md bg-gray-900/90 dark:bg-gray-900/70 border-b border-gray-200 dark:border-gray-700 py-4">
+      <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16">
+              <!-- Logo -->
+              <div class="flex-shrink-0">
+                  <img src="/assets/logo.png" alt="Logo" class="h-30 w-auto md:h-32">
+              </div>
 
-<body class="bg-gray-100" x-data="{showPopup: false}">
+              <!-- Desktop Navigation -->
+              <div class="desktop-menu flex items-center gap-4">
+                  <button id="themeToggle"
+                      class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                      <svg class="w-5 h-5 text-gray-700 dark:text-gray-200 sun-icon" fill="none" stroke="currentColor"
+                          viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707">
+                          </path>
+                      </svg>
+                      <svg class="w-5 h-5 text-gray-700 dark:text-gray-200 moon-icon hidden" fill="none"
+                          stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                          </path>
+                      </svg>
+                  </button>
+                  <a href="/index.html">
+                      <button
+                          class="px-4 py-2 text-md font-medium text-white dark:text-gray-200 hover:bg-orange-500 dark:hover:bg-gray-800 rounded-lg transition-colors">
+                          <i class="fa fa-chevron-left text-white pr-4" aria-hidden="true"></i>
+                          Return to Home
+                      </button>
+                  </a>
+                  <a href="/job-seeker/login.html">
+                      <button
+                          class="px-4 py-2 text-md font-medium text-white bg-gradient-to-r from-orange-600 to-orange-500 rounded-lg hover:opacity-90 transition-colors">
+                    Login
+                      </button>
+                  </a>
+              </div>
+
+              <!-- Mobile Menu Button -->
+              <button id="mobileMenuButton"
+                  class="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                  <svg class="h-6 w-6 menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M4 6h16M4 12h16M4 18h16"></path>
+                  </svg>
+                  <svg class="h-6 w-6 close-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                      </path>
+                  </svg>
+              </button>
+          </div>
+
+          <!-- Mobile Navigation -->
+          <div class="mobile-menu py-4">
+              <div class="flex flex-col gap-4">
+                  <button
+                      class="mobile-theme-toggle p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors w-fit">
+                      <svg class="w-5 h-5 text-gray-700 dark:text-gray-200 sun-icon" fill="none" stroke="currentColor"
+                          viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707">
+                          </path>
+                      </svg>
+                      <svg class="w-5 h-5 text-gray-700 dark:text-gray-200 moon-icon hidden" fill="none"
+                          stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                          </path>
+                      </svg>
+                  </button>
+                  <a href="/index.html"
+                      class="px-4 py-2 text-md font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors text-center">
+                      Return to Home
+                  </a>
+                  <a href="/job-seeker/register.html"
+                      class="px-4 py-2 text-md font-medium text-white bg-gradient-to-r from-orange-600 to-orange-500 rounded-lg hover:opacity-90 transition-colors text-center">
+                      Sign Up
+                  </a>
+              </div>
+
+
+          </div>
+  </nav>
+</header>
+
+<body class="bg-orange-400 max-h-screen" x-data="{showPopup:true}">
   
-    <!-- the trigger popup -->
-    <div class="flex justify-center items-center h-screen">
-        <button 
-          @click="showPopup = true" 
-          class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-24 px-48 rounded-lg shadow-md transition duration-300 transform hover:scale-105 text-4xl"
-        >
-    Welcome to Klas Recruitment<br> Registration portal. Let's get started!
-        </button>
-      </div>
+    <!-- the trigger popup button when a visitor closes by mistake -->
+    <div class="flex justify-center items-center mt-30 sm:mt-40 max-h-screen mb-80">
+      <button 
+        @click="showPopup = true" 
+        class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-6 px-8 rounded-lg shadow-md transition duration-300 transform hover:scale-105 text-2xl"
+      >
+Let's Get Started Again
+      </button>
+    </div>
     
     <!-- Popup Overlay -->
     <div 
       x-show="showPopup" 
-      class="fixed inset-0 flex items-center justify-center popup-overlay z-50" 
+      class="fixed inset-0 flex items-center justify-center popup-overlay z-50 mb-50" 
       x-transition:enter="transition ease-out duration-300"
       x-transition:enter-start="opacity-0"
       x-transition:enter-end="opacity-100"
       x-transition:leave="transition ease-in duration-200"
       x-transition:leave-start="opacity-100"
       x-transition:leave-end="opacity-0"
-      @click.self="showPopup = false"
+      @click.self="showPopup = true"
     >
       <!-- Popup Container -->
       <div 
         class="popup-container bg-white rounded-xl shadow-2xl overflow-hidden w-full max-w-4xl mx-4"
         :class="{'show': showPopup}"
       >
-        <div class="flex flex-col md:flex-row">
+        <div class="flex flex-col md:flex-row center-items">
           
           <!-- Left Column - Recruiters -->
           <div class="w-full md:w-1/2 p-8 bg-gray-50 flex flex-col items-center justify-center column-animation-left">
@@ -73,38 +161,19 @@
                 Create Recruiter Account
               </a>
               
-              <div class="text-center">
-                <span class="text-sm text-gray-500">Or sign up with</span>
-                <div class="flex justify-center mt-3 space-x-3">
-                  <button class="social-login-btn flex items-center justify-center h-12 w-12 rounded-full border border-gray-300 hover:border-blue-400 bg-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M10 0C4.477 0 0 4.477 0 10c0 5.523 4.477 10 10 10 5.523 0 10-4.477 10-10C20 4.477 15.523 0 10 0zm-.896 15.505a5.446 5.446 0 01-2.079-.404.268.268 0 01-.147-.31c.021-.087.103-.142.19-.15.358-.033 2.687-.263 3.736-1.159-1.137-.357-1.808-1.385-2.003-1.717a.254.254 0 01.007-.276.247.247 0 01.254-.103c.067.009.134.023.199.041-.829-.615-1.061-1.741-1.14-2.274a.28.28 0 01.138-.29.252.252 0 01.32.037c.052.047.104.096.158.142a4.957 4.957 0 01-.439-2.01.251.251 0 01.41-.219A5.53 5.53 0 0110.145 9.3a5.525 5.525 0 014.67-2.407c1.456.065 2.757.788 3.588 1.998.173.248.328.514.464.79a.257.257 0 01-.18.356.235.235 0 01-.265-.062 2.524 2.524 0 00-.269-.26c.076.181.135.371.178.564a.26.26 0 01-.102.274.235.235 0 01-.285-.01 2.222 2.222 0 00-.773-.369c.053.272.053.558 0 .83a.257.257 0 01-.412.178c-.579-.462-1.87-1.234-3.219-.977 1.634 1.936 1.163 4.339 1.115 4.569a.314.314 0 01-.21.239c-.716.319-2.102.79-4.556.492z"/>
-                    </svg>
-                  </button>
-                  <button class="social-login-btn flex items-center justify-center h-12 w-12 rounded-full border border-gray-300 hover:border-blue-400 bg-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-700" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M17.4 1H2.6C1.7 1 1 1.7 1 2.6v14.8c0 .9.7 1.6 1.6 1.6h14.8c.9 0 1.6-.7 1.6-1.6V2.6c0-.9-.7-1.6-1.6-1.6zM6 17H3V8h3v9zm-1.5-10.4c-1 0-1.8-.8-1.8-1.8s.8-1.8 1.8-1.8 1.8.8 1.8 1.8-.8 1.8-1.8 1.8zM17 17h-3v-5.6c0-3.4-4-3.1-4 0V17H7V8h3v1.8c1.4-2.6 7-2.8 7 2.5V17z"/>
-                    </svg>
-                  </button>
-                  <button class="social-login-btn flex items-center justify-center h-12 w-12 rounded-full border border-gray-300 hover:border-blue-400 bg-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M10 1.667c4.6 0 8.333 3.733 8.333 8.333 0 4.6-3.733 8.333-8.333 8.333-4.6 0-8.333-3.733-8.333-8.333 0-4.6 3.733-8.333 8.333-8.333zm0 3.542c-.8 0-1.458.658-1.458 1.458 0 .8.658 1.458 1.458 1.458.8 0 1.458-.658 1.458-1.458 0-.8-.658-1.458-1.458-1.458zm-3.4 9.95c.592.375 1.408.608 2.317.608 1.767 0 3.075-.725 3.075-2.475v-3.75h-1.708v.425c-.433-.342-1.025-.525-1.667-.525-1.775 0-3.225 1.4-3.225 3.125s1.45 3.125 3.225 3.125c.642 0 1.233-.183 1.667-.525v.425c0 .842-.683 1.192-1.733 1.192-.642 0-1.2-.133-1.592-.375l-.359-.242-.833 1.042.833-.05zm2.567-2.1c-.975 0-1.767-.775-1.767-1.733s.792-1.733 1.767-1.733c.975 0 1.767.775 1.767 1.733s-.792 1.733-1.767 1.733z"/>
-                    </svg>
-                  </button>
-                </div>
-              </div>
+
             </div>
             
             <div class="mt-8 text-center text-sm text-gray-600">
               Already have an account? 
-              <a href="#" class="text-blue-500 hover:text-blue-700 font-medium">Sign in</a>
+              <a href="/recruitment/login.html" class="text-blue-500 hover:text-blue-700 font-medium">Sign in</a>
             </div>
           </div>
           
           <!-- Right Column - Job Seekers -->
           <div class="w-full md:w-1/2 p-8 bg-gradient-to-br from-blue-500 to-blue-600 text-white flex flex-col items-center justify-center column-animation-right">
             <div class="text-center mb-6">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
               <h2 class="mt-4 text-2xl font-bold">Looking for Work?</h2>
@@ -119,26 +188,6 @@
                 Create Job Seeker Account
               </a>
               
-              <div class="text-center">
-                <span class="text-sm text-blue-100">Or sign up with</span>
-                <div class="flex justify-center mt-3 space-x-3">
-                  <button class="social-login-btn flex items-center justify-center h-12 w-12 rounded-full border border-blue-400 hover:border-white bg-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M10 0C4.477 0 0 4.477 0 10c0 5.523 4.477 10 10 10 5.523 0 10-4.477 10-10C20 4.477 15.523 0 10 0zm-.896 15.505a5.446 5.446 0 01-2.079-.404.268.268 0 01-.147-.31c.021-.087.103-.142.19-.15.358-.033 2.687-.263 3.736-1.159-1.137-.357-1.808-1.385-2.003-1.717a.254.254 0 01.007-.276.247.247 0 01.254-.103c.067.009.134.023.199.041-.829-.615-1.061-1.741-1.14-2.274a.28.28 0 01.138-.29.252.252 0 01.32.037c.052.047.104.096.158.142a4.957 4.957 0 01-.439-2.01.251.251 0 01.41-.219A5.53 5.53 0 0110.145 9.3a5.525 5.525 0 014.67-2.407c1.456.065 2.757.788 3.588 1.998.173.248.328.514.464.79a.257.257 0 01-.18.356.235.235 0 01-.265-.062 2.524 2.524 0 00-.269-.26c.076.181.135.371.178.564a.26.26 0 01-.102.274.235.235 0 01-.285-.01 2.222 2.222 0 00-.773-.369c.053.272.053.558 0 .83a.257.257 0 01-.412.178c-.579-.462-1.87-1.234-3.219-.977 1.634 1.936 1.163 4.339 1.115 4.569a.314.314 0 01-.21.239c-.716.319-2.102.79-4.556.492z"/>
-                    </svg>
-                  </button>
-                  <button class="social-login-btn flex items-center justify-center h-12 w-12 rounded-full border border-blue-400 hover:border-white bg-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-700" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M17.4 1H2.6C1.7 1 1 1.7 1 2.6v14.8c0 .9.7 1.6 1.6 1.6h14.8c.9 0 1.6-.7 1.6-1.6V2.6c0-.9-.7-1.6-1.6-1.6zM6 17H3V8h3v9zm-1.5-10.4c-1 0-1.8-.8-1.8-1.8s.8-1.8 1.8-1.8 1.8.8 1.8 1.8-.8 1.8-1.8 1.8zM17 17h-3v-5.6c0-3.4-4-3.1-4 0V17H7V8h3v1.8c1.4-2.6 7-2.8 7 2.5V17z"/>
-                    </svg>
-                  </button>
-                  <button class="social-login-btn flex items-center justify-center h-12 w-12 rounded-full border border-blue-400 hover:border-white bg-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M10 1.667c4.6 0 8.333 3.733 8.333 8.333 0 4.6-3.733 8.333-8.333 8.333-4.6 0-8.333-3.733-8.333-8.333 0-4.6 3.733-8.333 8.333-8.333zm0 3.542c-.8 0-1.458.658-1.458 1.458 0 .8.658 1.458 1.458 1.458.8 0 1.458-.658 1.458-1.458 0-.8-.658-1.458-1.458-1.458zm-3.4 9.95c.592.375 1.408.608 2.317.608 1.767 0 3.075-.725 3.075-2.475v-3.75h-1.708v.425c-.433-.342-1.025-.525-1.667-.525-1.775 0-3.225 1.4-3.225 3.125s1.45 3.125 3.225 3.125c.642 0 1.233-.183 1.667-.525v.425c0 .842-.683 1.192-1.733 1.192-.642 0-1.2-.133-1.592-.375l-.359-.242-.833 1.042.833-.05zm2.567-2.1c-.975 0-1.767-.775-1.767-1.733s.792-1.733 1.767-1.733c.975 0 1.767.775 1.767 1.733s-.792 1.733-1.767 1.733z"/>
-                    </svg>
-                  </button>
-                </div>
-              </div>
             </div>
             
             <div class="mt-8 text-center text-sm text-blue-100">
@@ -176,4 +225,52 @@
       });
     </script>
 </body>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 fixed bottom-0 w-full">
+      <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-12">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+              <div class="col-span-1 md:col-span-2">
+                  <h1
+                      class="text-2xl font-bold bg-gradient-to-r from-orange-600 to-orange-500 bg-clip-text text-transparent mb-4">
+                      KLAS RECRUITMENT
+                  </h1>
+                  <p class="text-gray-600 dark:text-gray-300">
+                      Join us the experts in recruitment solutions to help companies and candidates find their perfect
+                      match.
+                  </p>
+              </div>
+              <div>
+                  <h4 class="font-semibold text-gray-900 dark:text-white mb-4">Quick Links</h4>
+                  <ul class="space-y-2">
+                      <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Find Jobs</a></li>
+                      <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Post Jobs</a></li>
+                      <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">About Us</a></li>
+                      <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Contact</a></li>
+                  </ul>
+              </div>
+              <div>
+                  <h4 class="font-semibold text-gray-900 dark:text-white mb-4">Legal</h4>
+                  <ul class="space-y-2">
+                      <a href="#" onclick="openModal(); return true;"
+                          class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Privacy Policy</a>
+
+                      <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Terms of
+                              Service</a></li>
+                      <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Cookie Policy</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700 text-center">
+              <p class="text-gray-500 dark:text-gray-400">© 2025 KLAS RECRUITMENT. All rights reserved.</p>
+          </div>
+      </div>
+  </footer>
+
+  <!-- Theme Toggle Script -->
+  <script src="/main.js">
+
+  </script>
+
 </html>
